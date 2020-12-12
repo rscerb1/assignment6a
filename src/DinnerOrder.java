@@ -6,7 +6,7 @@ public class DinnerOrder {
     public DinnerOrder(){this.dinnerMenu = new Menu(); }
 
     public void start(){
-        UI userInterface = new UI(); // create a UI object
+        UI userInterface = UI.getInstance(); // get singleton implementation of UI
         setCommand(userInterface.startUI()); // run the UI and store the return value in slot
         submitCommand(); // run the command in slot
 

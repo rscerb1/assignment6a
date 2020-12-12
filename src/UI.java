@@ -1,10 +1,17 @@
 import java.util.Scanner;
 
+// Singleton implementation of UI since only one needs to exist
+
 // This class is responsible for running a user interface with selectable options.
 // The user interface is a looped switch statement that returns a ICommand upon selection.
 public class UI {
 
-    // the only thing is this class is the startUI method that controls the UI
+    // singleton stuff
+    private static final UI singleton = new UI();
+    private UI(){}
+    public static UI getInstance(){return singleton;}
+
+    // method that controls the UI
     public ICommand startUI(){
         Scanner sc = new Scanner(System.in); // scanner to read user input
         int selection; // int to store input from scanner
