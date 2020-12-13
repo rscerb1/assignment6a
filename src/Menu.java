@@ -15,14 +15,20 @@ public class Menu {
         fillMenu();
     }
 
+    // getter for menu length
+    public int getSize(){return itemNumberIterator;}
+
     // getter for a specific item based off its index
     public MenuItem getMenuItemFromItemNum(int itemNumber){return menuList.get(itemNumber); }
 
     // method to print out the formatted menu
     public void displayMenu(){
-        System.out.printf("%-25s%-11s%s\n", "Entree:", "Price:", "Description:");
-        for (MenuItem temp : menuList)
-            System.out.printf("%-25s%2.2f\t\t%s\n", temp.getName(), temp.getPrice(), temp.getDescription());
+        System.out.printf("   %-25s%-12s%s\n", "Entree:", "Price:", "Description:");
+        int i=0;
+        for (MenuItem temp : menuList) {
+            System.out.printf("%d) %-25s%2.2f\t\t%s\n", i, temp.getName(), temp.getPrice(), temp.getDescription());
+            i++;
+        }
     }
 
     // method to add an menuItem to the menu and iterate the item number variable (itemNumberIterator)
